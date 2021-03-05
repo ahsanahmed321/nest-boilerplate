@@ -25,4 +25,13 @@ export class ClientService {
 
     return clientProfile.save();
   }
+
+  async createTask(clientId, taskId) {
+    const clientProfile = await this.clientModel.findOneAndUpdate(
+      { _id: clientId },
+      { $push: { currentTasks: taskId } },
+    );
+
+    return clientProfile;
+  }
 }

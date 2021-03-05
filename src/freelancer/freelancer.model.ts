@@ -2,7 +2,7 @@ import * as mongoose from 'mongoose';
 
 export const FreelancerSchema = new mongoose.Schema({
   balance: { type: Number },
-  currentTask: { type: Array },
+  currentTasks: { type: Array },
   skills: { type: Array },
   certifications: { type: Array },
   education: { type: Array },
@@ -10,7 +10,7 @@ export const FreelancerSchema = new mongoose.Schema({
 
 export interface Freelancer extends mongoose.Document {
   balance: Number;
-  currentTask: [];
+  currentTasks: [];
   skills: [];
   certifications: [];
   education: [];

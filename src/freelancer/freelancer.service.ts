@@ -51,4 +51,13 @@ export class FreelancerService {
 
     return updatedProfile;
   }
+
+  async acceptBid(freelancerId, taskId) {
+    const updatedFreelancer = await this.freelancerModel.findOneAndUpdate(
+      { _id: freelancerId },
+      { $push: { currentTasks: taskId } },
+    );
+
+    return updatedFreelancer;
+  }
 }

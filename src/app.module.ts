@@ -8,6 +8,8 @@ import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { FreelancerModule } from './freelancer/freelancer.module';
 import { ClientModule } from './client/client.module';
+import { TaskModule } from './task/task.module';
+import { BidModule } from './bid/bid.module';
 
 @Module({
   imports: [
@@ -19,6 +21,8 @@ import { ClientModule } from './client/client.module';
     ),
     FreelancerModule,
     ClientModule,
+    TaskModule,
+    BidModule,
   ],
   controllers: [AppController],
   providers: [AppService],
