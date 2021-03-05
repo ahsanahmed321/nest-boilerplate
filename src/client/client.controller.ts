@@ -34,6 +34,23 @@ export class ClientController {
       clientProfile._id,
     );
 
-    return user;
+    if (clientProfile && user) {
+      throw new HttpException(
+        {
+          status: HttpStatus.OK,
+          msg: 'Client Profile Created',
+          data: clientProfile,
+        },
+        HttpStatus.OK,
+      );
+    } else {
+      throw new HttpException(
+        {
+          status: HttpStatus.BAD_REQUEST,
+          msg: 'Sorry Client Profile cannot be created',
+        },
+        HttpStatus.OK,
+      );
+    }
   }
 }

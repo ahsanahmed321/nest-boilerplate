@@ -17,4 +17,38 @@ export class FreelancerService {
     @InjectModel('Freelancer')
     private readonly freelancerModel: Model<Freelancer>,
   ) {}
+
+  async createProfile(skills: any) {
+    const freelancerProfile = new this.freelancerModel({
+      skills,
+    });
+
+    return freelancerProfile.save();
+  }
+
+  async updateSkills(freelancerId: string, skills: any) {
+    const updatedProfile = await this.freelancerModel.findOneAndUpdate(
+      { _id: freelancerId },
+      { skills },
+    );
+    return updatedProfile;
+  }
+
+  async updateCertifications(freelancerId: string, certifications: any) {
+    const updatedProfile = await this.freelancerModel.findOneAndUpdate(
+      { _id: freelancerId },
+      { certifications },
+    );
+
+    return updatedProfile;
+  }
+
+  async updateEducation(freelancerId: string, education: any) {
+    const updatedProfile = await this.freelancerModel.findOneAndUpdate(
+      { _id: freelancerId },
+      { education },
+    );
+
+    return updatedProfile;
+  }
 }

@@ -7,6 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { FreelancerModule } from './freelancer/freelancer.module';
+import { ClientModule } from './client/client.module';
 
 @Module({
   imports: [
@@ -17,6 +18,7 @@ import { FreelancerModule } from './freelancer/freelancer.module';
       { useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true },
     ),
     FreelancerModule,
+    ClientModule,
   ],
   controllers: [AppController],
   providers: [AppService],
